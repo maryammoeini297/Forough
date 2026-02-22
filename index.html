@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forough 🤍</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Playfair Display', serif;
+}
+
+body{
+  height:100vh;
+  background: linear-gradient(to bottom, #f8f5f2, #e8dfd8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* soft floating light particles */
+.particle{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:rgba(255,255,255,0.6);
+  border-radius:50%;
+  animation: float 12s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh); opacity:0;}
+  50%{opacity:1;}
+  to{transform:translateY(-10vh); opacity:0;}
+}
+
+/* glass card */
+.card{
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.6);
+  padding:60px;
+  width:600px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.1);
+  transition:0.8s ease;
+}
+
+h1{
+  font-size:42px;
+  color:#3e3e3e;
+  margin-bottom:20px;
+  letter-spacing:2px;
+}
+
+p{
+  font-size:18px;
+  color:#555;
+  line-height:1.7;
+}
+
+button{
+  margin-top:35px;
+  padding:12px 30px;
+  border-radius:30px;
+  border:1px solid #aaa;
+  background:transparent;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#3e3e3e;
+  color:white;
+}
+
+/* photo reveal */
+.photo{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  width:350px;
+  border-radius:20px;
+  opacity:0;
+  transition:1s ease;
+  box-shadow:0 25px 60px rgba(0,0,0,0.2);
+}
+
+.photo.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Birthday Forough 🤍</h1>
+  <p>
+    To my forever best friend…<br><br>
+    Thank you for growing with me, standing beside me,  
+    and being my constant in every season of life.<br><br>
+    May this year bring you quiet confidence,  
+    soft love, big success, and everything your heart secretly wishes for.<br><br>
+    You deserve a beautiful life. Always. ✨
+  </p>
+  <button onclick="surprise()">Click Me</button>
+</div>
+
+<img src="Forough.jpeg" class="photo" id="photo">
+
+<audio id="music" loop>
+  <source src="song.m4a" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+const photo = document.getElementById("photo");
+
+// play music on first click anywhere
+document.body.addEventListener("click", function startMusic() {
+    music.play();
+    document.body.removeEventListener("click", startMusic);
+});
+
+// function for button click
+function surprise() {
+    photo.classList.add("show");  // adds class to make photo visible
+}
+</script>
+
+</body>
+</html>
